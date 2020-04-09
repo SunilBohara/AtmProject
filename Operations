@@ -1,0 +1,38 @@
+package AtmProject;
+import java.util.Scanner;
+public class Operations 
+{
+    
+    public int cb;
+    public int wf;
+    public int df;
+    //public short fn = 1;
+    //public short sc = 2;
+    //public short th =3;
+    
+    public double withdrawFunds()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Amount you want to withdraw from Checking Account: ");
+        double store = sc.nextDouble();
+        return store-cb;
+    }
+    
+    public double currentBalance()
+    {
+        return cb;
+    }
+    
+    public double depositeFunds()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Amount you want to deposite from Checking Account: ");
+        double store = sc.nextDouble();
+        return store+cb;
+    }
+    
+    public Operations()
+    {
+        System.out.println("");
+    }
+}
