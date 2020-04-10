@@ -1,38 +1,108 @@
 package AtmProject;
 import java.util.Scanner;
-public class Operations 
+public class OptionsMenu extends Operations
 {
+    public long cn;
+    public int pn;
     
-    public int cb;
-    public int wf;
-    public int df;
-    //public short fn = 1;
-    //public short sc = 2;
-    //public short th =3;
-    
-    public double withdrawFunds()
+    public OptionsMenu(long cn, int pn)
     {
+        this.cn = cn;
+        this.pn = pn;
+        Operations o = new Operations();
         Scanner sc = new Scanner(System.in);
-        System.out.print("Amount you want to withdraw from Checking Account: ");
-        double store = sc.nextDouble();
-        return store-cb;
-    }
-    
-    public double currentBalance()
-    {
-        return cb;
-    }
-    
-    public double depositeFunds()
-    {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Amount you want to deposite from Checking Account: ");
-        double store = sc.nextDouble();
-        return store+cb;
-    }
-    
-    public Operations()
-    {
-        System.out.println("");
+        System.out.println("Welcome to the ATM Project!");
+        System.out.print("Enter Your Customer Number: ");
+        long userid = sc.nextLong();
+        System.out.print("Enter Your Pin Number: ");
+        int userp = sc.nextInt();
+        if(userid==this.cn && userp==this.pn)
+        {
+            System.out.println("Id and password is accepted");   
+            System.out.println("Select the Account you want to access");
+            System.out.println("Type 1 - Checking Account");
+            System.out.println("Type 2 - Exit");
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Choice: ");
+            int mainchoice = scanner.nextInt();
+            if(mainchoice==1)
+            {
+                System.out.println("Type 1 - View Balance");
+                System.out.println("Type 2 - Withdraw Funds");
+                System.out.println("Type 3 - Deposite Funds");
+                System.out.println("Type 4 - Exit");
+                System.out.print("Choice: ");
+                
+                int innerchoice1 = sc.nextInt();
+                switch (innerchoice1) {
+                    case 1:
+                        System.out.println("Checking Account Balance : $"+o.currentBalance());
+                        System.out.println("Type 1 - Deposite Funds");
+                        System.out.println("Type 2 - Withdraw Funds");
+                        System.out.println("Type 3 - Exit");
+                        System.out.print("Choice: ");
+                        int anotherchoice1 = sc.nextInt();
+                        switch (anotherchoice1)
+                        {
+                            case 1:
+                                o.depositeFunds();
+                                System.out.println("New Checking Account Balance"+o.currentBalance());
+                            case 2:
+                                o.withdrawFunds();
+                                System.out.println("Type 1 - Deposite Funds");
+                                System.out.println("Type 2 - Withdraw Funds");
+                                System.out.println("Type 3 - Exit");
+                                System.out.print("Choice: ");
+                                //System.out.println("Balance cannot be negative.");
+                                System.out.println("Checking Account Balance"+o.currentBalance());
+                            case 3 :
+                                System.out.println("Type 1 - View Balance");
+                                System.out.println("Type 2 - Withdraw Funds");
+                                System.out.println("Type 3 - Deposite Funds");
+                                System.out.println("Type 4 - Exit");
+                                System.out.print("Choice: ");
+                                int innerchoice2 = sc.nextInt();
+                                switch(innerchoice2)
+                                {
+                                    
+                                }
+                        }
+                        
+                        break;
+                    case 2:
+                        o.withdrawFunds();
+                        System.out.println("Checking Account Balance"+o.currentBalance());
+                        o.depositeFunds();
+                        System.out.print("Choice: ");
+                        int anotherchoice2 = sc.nextInt();
+                        if(anotherchoice2==2)
+                        {
+                            System.out.println("New Checking Account Balance: $"+o.currentBalance());
+                            
+                        }
+                        break;
+                    case 3:
+                        System.out.println("Amount you want to deposite from Checking Account: ");
+                        System.out.print("Choice: ");
+                        int anotherchoice3 = sc.nextInt();
+                        if(anotherchoice3==2)
+                        {
+                            System.out.println("New Checking Account Balance: $"+o.currentBalance());
+                            System.out.println("Id and password is accepted");   
+                            System.out.println("Select the Account you want to access");
+                            System.out.println("Type 1 - Checking Account");
+                            System.out.println("Type 2 - Exit");    
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            
+        }
+        else
+        {
+            System.out.println("Your Id and Password is incorrect");
+        }        
     }
 }
