@@ -1,15 +1,51 @@
 package AtmProject;
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Operations 
 {
-    //public double viewbalance;
-    public double withdrawfunds;
-    public double depositefunds;
+    private int viewbalance = 0;
+    private int withdrawfunds;
+    private int depositefunds;
     
-    int[] viewbalance = new int[1];
+    Scanner sc = new Scanner(System.in);
     
-    public void viewBalance(int []viewbalance)
+    public void viewBalance()
     {
-      this.viewbalance = viewbalance;  
+        System.out.println("Your Balance is : "+this.viewbalance);
     }
+    
+    public void depositeFunds()
+    {
+        
+        System.out.print("Amount you want to deposite : ");
+        int depo = sc.nextInt();
+        if(depo==depo)
+        {
+        //storing.add(0);
+        viewbalance = viewbalance+depo;    
+        //storing.add(0, this.viewbalance);
+        //storing.add(1, this.depositefunds);
+        System.out.println("New Checking Balance is : "+this.viewbalance);
+        System.out.println("Your Balance is : " +this.viewbalance);
+        }
+        
+    }
+    
+    public void withdrawFunds()
+    {
+        //storing.get(0);
+        //storing.get(1);
+        System.out.print("Amount you want to withdraw from Checking Account: ");
+        int with = sc.nextInt();
+        if(with<=this.viewbalance)
+        {
+            viewbalance = viewbalance-with;
+            System.out.println("Updated Balance is "+this.viewbalance);
+        }
+        else if(with>this.viewbalance)
+        {
+            System.out.println("Balance Cannot Be Negative");
+        }
+    }
+    
 }
