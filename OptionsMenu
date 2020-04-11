@@ -7,15 +7,19 @@ public class OptionsMenu extends Operations
     
     public OptionsMenu(long cn, int pn)
     {
+        ChildClass cc = new ChildClass();
         this.cn = cn;
         this.pn = pn;
         Operations o = new Operations();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Welcome to the ATM Project!");
-        System.out.print("Enter Your Customer Number: ");
+        cc.welcomeAtm();
         long userid = sc.nextLong();
         System.out.print("Enter Your Pin Number: ");
         int userp = sc.nextInt();
+        
+        
+        while(true)
+        {     
         if(userid==this.cn && userp==this.pn)
         {
             System.out.println("Id and password is accepted");   
@@ -23,46 +27,29 @@ public class OptionsMenu extends Operations
             System.out.println("Type 1 - Checking Account");
             System.out.println("Type 2 - Exit");
             Scanner scanner = new Scanner(System.in);
+            
+            int mainchoice = scanner.nextInt();
             System.out.print("Choice: ");
-            int choice = scanner.nextInt();
-            if(choice==1)
+            if(mainchoice==1)
             {
-                System.out.println("Type 1 - View Balance");
-                System.out.println("Type 2 - Withdraw Funds");
-                System.out.println("Type 3 - Deposite Funds");
-                System.out.println("Type 4 - Exit");
-                System.out.print("Choice: ");
-                int choice2 = sc.nextInt();
-                if(choice2==1)
+                while(true)
                 {
-                    System.out.println("Checking Account Balance : $"+o.currentBalance());
-                    
-                    System.out.println("Type 1 - View Balance");
-                    System.out.println("Type 2 - Withdraw Funds");
-                    System.out.println("Type 3 - Deposite Funds");
-                    System.out.println("Type 4 - Exit");
-                    System.out.print("Choice: ");
-                }
-                if(choice2==2)
-                {
-                    o.withdrawFunds();
-                    System.out.println("New Checking Account Balance: $"+o.withdrawFunds());
-                }
-                if(choice2==3)
-                {
-                    //o.depositeFunds();
-                    System.out.println("New Checking Account Balance: $"+o.depositeFunds());
+                cc.checkingAccount(mainchoice);
+                int innerchoice = sc.nextInt();
+                cc.innerChoice(innerchoice);
                 }
             }
-            else if(choice==2)
+            else if(mainchoice==2)
             {
-                System.out.println("Type 1 - Checking Account");
-                System.out.println("Type 2 - Exit");
+                System.exit(0);
             }
         }
         else
         {
-            System.out.println("Your Id and Password is incorrect");
-        }        
+            System.out.println("Invalid id and password");
+            System.exit(0);
+        }
+        
+        }
     }
 }
