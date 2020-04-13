@@ -1,22 +1,20 @@
 package AtmProject;
 import java.util.Scanner;
-public class OptionsMenu extends Operations
+public class OptionsMenu
 {
     public long cn;
     public int pn;
     
     public OptionsMenu(long cn, int pn)
     {
-        ChildClass cc = new ChildClass();
+        PrintingAndSwitching cc = new PrintingAndSwitching();
         this.cn = cn;
         this.pn = pn;
-        Operations o = new Operations();
         Scanner sc = new Scanner(System.in);
         cc.welcomeAtm();
         long userid = sc.nextLong();
         System.out.print("Enter Your Pin Number: ");
         int userp = sc.nextInt();
-        
         
         while(true)
         {     
