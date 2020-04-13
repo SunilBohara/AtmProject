@@ -1,5 +1,5 @@
 package AtmProject;
-public class ChildClass extends Operations {
+public class PrintingAndSwitching  {
     
     public void welcomeAtm()
     {
@@ -10,15 +10,15 @@ public class ChildClass extends Operations {
     public void checkingAccount(int mainchoice)
     {
         System.out.println("Type 1 - View Balance");
-        System.out.println("Type 3 - Deposite Funds");
-        System.out.println("Type 2 - Withdraw Funds");
+        System.out.println("Type 2 - Deposite Funds");
+        System.out.println("Type 3 - Withdraw Funds");
         System.out.println("Type 4 - Exit");
         System.out.print("Choice: ");
     }
 
     public int innerChoice(int innerChoice)
     {
-        Operations o = new Operations();
+        Operations o = Operations.getInstance();
         switch(innerChoice)
         {
             case 1 :
@@ -34,7 +34,7 @@ public class ChildClass extends Operations {
             System.exit(0);
                 break;
         }
-        return 0;
+        return 1;
     }
 
 }
