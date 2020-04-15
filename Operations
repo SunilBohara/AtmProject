@@ -3,27 +3,27 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Operations 
 {
-    private static Operations o = null;
+    //private static Operations o;
     
-    private int viewbalance;
+    public static int viewbalance;
     private int withdrawfunds;
     private int depositefunds;
     
     
-    public static Operations getInstance()
-    {
-        if(o==null)
-        {
-        return new Operations();
-        }
-        return o;
-    }
+//    public static Operations getInstance()
+//    {
+//        if(o==null)
+//        {
+//        return new Operations();
+//        }
+//        return o;
+//    }
     
     Scanner sc = new Scanner(System.in);
     
-    public void viewBalance()
+    public static void viewBalance()
     {
-        System.out.println("Your Balance is : "+this.viewbalance);
+        System.out.println("Your Balance is : "+Operations.viewbalance);
     }
     
     public void depositeFunds()
