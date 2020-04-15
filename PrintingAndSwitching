@@ -1,6 +1,14 @@
 package AtmProject;
 public class PrintingAndSwitching  {
     
+    public String yes,no;
+    //public static Operations o = new Operations();
+    
+//    public void exitFunction()
+//    {
+//         System.out.println("Are you sure want to exit");
+//    }
+    
     public void welcomeAtm()
     {
         System.out.println("Welcome to the ATM Project!");
@@ -18,7 +26,7 @@ public class PrintingAndSwitching  {
 
     public int innerChoice(int innerChoice)
     {
-        Operations o = Operations.getInstance();
+        Operations o = new Operations();
         switch(innerChoice)
         {
             case 1 :
@@ -31,7 +39,8 @@ public class PrintingAndSwitching  {
                 o.withdrawFunds();
                 break;
             default :
-            System.exit(0);
+                
+                //System.exit(0);
                 break;
         }
         return 1;
